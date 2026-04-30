@@ -88,7 +88,7 @@ allocproc(void)
 found:
   p->state = EMBRYO;
   p->pid = nextpid++;
-
+  
   release(&ptable.lock);
 
   // Allocate kernel stack.
@@ -101,7 +101,8 @@ found:
   // Leave room for trap frame.
   sp -= sizeof *p->tf;
   p->tf = (struct trapframe*)sp;
-
+  
+  p->tracemask = 0;  //initializing tracemask
   // Set up new context to start executing at forkret,
   // which returns to trapret.
   sp -= 4;
@@ -199,6 +200,7 @@ fork(void)
   np->sz = curproc->sz;
   np->parent = curproc;
   *np->tf = *curproc->tf;
+  np->tracemask = curproc->tracemask; //child inheriting parent mask
 
   // Clear %eax so that fork returns 0 in the child.
   np->tf->eax = 0;
