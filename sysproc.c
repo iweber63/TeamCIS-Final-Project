@@ -89,3 +89,19 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// Implementatoin of the System Call Tracing assignment
+int
+sys_trace(void)
+{
+  int mask;
+
+  // Get the first arg passed from user space
+  if(argint(0, &mask) < 0)
+    return -1;
+
+  // Store in the current process
+  myproc()->tracemask = mask;
+
+  return 0;
+}
