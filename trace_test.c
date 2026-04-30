@@ -3,7 +3,7 @@
 #include "user.h"
 
 int main() {
-  trace(1 << SYS_write);
+  trace(0);
 
   write(1, "hello\n", 6);
 
