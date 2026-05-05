@@ -29,7 +29,7 @@ main(void)
         close(p[0]);
         write(p[1], "Hello World", 12);    //sending data
         close(p[1]);
-        wait(0);
+        wait();
     }
 
     exit();
