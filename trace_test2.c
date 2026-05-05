@@ -18,9 +18,9 @@ main(void)
     if(pid == 0){
         // child process
         close(p[1]);
-        read(p[0], buf, 12);
+        read(p[0], buffer, 12);
         
-        write(1, buf, 12);   //printing received data
+        write(1, buffer, 12);   //printing received data
         
         close(p[0]);
         exit();
