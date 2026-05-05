@@ -27,7 +27,7 @@ main(void)
     } else {
         // parent process
         close(p[0]);
-        write(p[1], "Hello World", 12);    //sending data
+        write(p[1], "Hello World\n", 12);    //sending data
         close(p[1]);
         wait();
     }
