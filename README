@@ -49,3 +49,9 @@ will need to install a cross-compiler gcc suite capable of producing
 x86 ELF binaries (see https://pdos.csail.mit.edu/6.828/).
 Then run "make TOOLPREFIX=i386-jos-elf-". Now install the QEMU PC
 simulator and run "make qemu".
+
+RUNNING TEST PROGRAMS
+
+To run test programs, once you have xv6 running in your terminal, enter   
+the commands "trace_test" and "trace_test2" separately. This will show all
+traced system calls made by the program during execution.
